@@ -1,5 +1,3 @@
-A tool to extend chemical ontologies with the predictions from deep neural networks. 
-
 In the project directory, you can run:
 
 ### `yarn start`
