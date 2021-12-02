@@ -17,12 +17,32 @@ import hexRgb from "hex-rgb";
 
 import MainCard from "../presentational/mainCard";
 
+function getIndicesOf(searchStr, str) {
+    var searchStrLen = searchStr.length;
+    if (searchStrLen == 0) {
+        return [];
+    }
+    var startIndex = 0, index, indices = [];
+
+    while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+        indices.push(index);
+        startIndex = index + searchStrLen;
+    }
+    return indices;
+}
+
 
 function ExampleSubstructureHighlight() {
   const [open, setOpen] = React.useState(false);
 
+  const indices = getIndicesOf("c", "c1cc(C(=O)O)c(OC(=O)C)cc1");
+  console.log(indices);
+
   const aspirin = "c1cc(C(=O)O)c(OC(=O)C)cc1";
-  const aspirinSubStruct = "C(=O)";
+  const aspirinSubStruct = "C(=O)O";
+
+  const smiles = "CC(=O)Oc1ccccc1C(=O)O";
+  const smarts = "O";
 
   const handleDelete = () => {
     console.info('You clicked the delete icon.');
@@ -84,7 +104,54 @@ function ExampleSubstructureHighlight() {
                     svgMode
                   />
                   <Typography variant="h6" gutterBottom component="div" style={{ 'textAlign': 'left' }}>
-                    CN1C=NC2=C1C(=O)N(C(=O)N2C)
+                    {aspirin}
+                  </Typography>
+                  <Stack direction="row" spacing={1}>
+                    <Chip
+                      label="caffeine"
+                      variant="outlined"
+                      clickable
+                      onDelete={handleDelete}
+                    />
+                    <Chip
+                      label="caffeine"
+                      variant="outlined"
+                      clickable
+                      onDelete={handleDelete}
+                      color="info"
+                    />
+                    <Chip
+                      label="caffeine"
+                      variant="outlined"
+                      clickable
+                      onDelete={handleDelete}
+                      color="success"
+                    />
+                    <Chip
+                      label="caffeine"
+                      variant="outlined"
+                      clickable
+                      onDelete={handleDelete}
+                      color="success"
+                    />
+                  </Stack>
+                </div>
+              }
+          />
+          <MainCard
+              dialogOpen={handleClickOpen}
+              content={
+                <div>
+                  <MoleculeStructure
+                    id="aspirinSubStruct"
+                    structure={smiles}
+                    subStructure={smarts}
+                    width={450}
+                    height={300}
+                    svgMode
+                  />
+                  <Typography variant="h6" gutterBottom component="div" style={{ 'textAlign': 'left' }}>
+                    {smiles}
                   </Typography>
                   <Stack direction="row" spacing={1}>
                     <Chip
