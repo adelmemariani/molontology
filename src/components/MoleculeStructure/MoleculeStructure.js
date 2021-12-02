@@ -92,7 +92,8 @@ class MoleculeStructure extends Component {
     if (this.isValidMol(mol) && this.isValidMol(qmol)) {
 
       var subStructuresArray = JSON.parse(mol.get_substruct_matches(qmol));
-      const subMatch  = JSON.stringify([subStructuresArray[0]]);
+      //const subMatch  = JSON.stringify([subStructuresArray[0]]);
+      const subMatch  = JSON.stringify(subStructuresArray);
 
       const subStructHighlightDetails = JSON.parse(subMatch);
 
@@ -107,6 +108,10 @@ class MoleculeStructure extends Component {
             { bonds: [], atoms: [] }
           )
         : subStructHighlightDetails;
+
+      console.log(subStructHighlightDetailsMerged);
+
+      
       return JSON.stringify({
         ...this.MOL_DETAILS,
         ...(this.props.extraDetails || {}),
