@@ -66,7 +66,8 @@ class MoleculeStructure extends Component {
     const mol = window.RDKit.get_mol(this.props.structure || "invalid");
     const qmol = window.RDKit.get_qmol(this.props.subStructure || "invalid");
 
-    console.log(mol.get_substruct_matches(qmol));
+    console.log(qmol);
+    console.log(mol);
 
     if (this.props.svgMode && this.isValidMol(mol)) {
       const svg = mol.get_svg_with_highlights(this.getMolDetails(mol, qmol));
@@ -91,9 +92,13 @@ class MoleculeStructure extends Component {
   getMolDetails(mol, qmol) {
     if (this.isValidMol(mol) && this.isValidMol(qmol)) {
 
+      const index_among_repeated_substructures = this.props.indexAmongRepeatedSubstructures;
+      console.log(index_among_repeated_substructures);
+
+
       var subStructuresArray = JSON.parse(mol.get_substruct_matches(qmol));
-      //const subMatch  = JSON.stringify([subStructuresArray[0]]);
-      const subMatch  = JSON.stringify(subStructuresArray);
+      const subMatch  = JSON.stringify([subStructuresArray[index_among_repeated_substructures]]);
+      //const subMatch  = JSON.stringify(subStructuresArray);
 
       const subStructHighlightDetails = JSON.parse(subMatch);
 
@@ -111,7 +116,7 @@ class MoleculeStructure extends Component {
 
       console.log(subStructHighlightDetailsMerged);
 
-      
+
       return JSON.stringify({
         ...this.MOL_DETAILS,
         ...(this.props.extraDetails || {}),
