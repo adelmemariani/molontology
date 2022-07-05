@@ -4,7 +4,7 @@ This web-based tool highlights the important substructures of the molecules acco
 ![molontology](https://github.com/adelmemariani/molontology/blob/main/screenshots/2.png)
 ![molontology](https://github.com/adelmemariani/molontology/blob/main/screenshots/3.png)
 
-To see the outputs, please run the following command in the min directory:
+To see the outputs, please run the following command in the main directory:
 
 ### `yarn start`
 
