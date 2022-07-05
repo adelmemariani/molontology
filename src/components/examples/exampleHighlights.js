@@ -75,9 +75,15 @@ function ExampleSubstructureHighlight() {
                 <img src={require('../../statics/mol_highlights/'+item.index+'.png').default} alt="molecular graph"/>
                 <img src={require('../../statics/attentions_table/'+item.index+'.jpg').default} alt="token attentions" style={{ width:'1600px'}}/>
                  <Typography variant="caption" gutterBottom component="div" style={{ 'textAlign': 'center' }}>
-                   {item.SMILES}
+                   SMILES: {item.SMILES}
+                 </Typography>
+                 <Typography variant="caption" gutterBottom component="div" style={{ 'textAlign': 'center' }}>
+                   Atoms: {item.atoms}
                  </Typography>
                    <Stack direction="row" spacing={1} justifyContent="center" alignItems="center">
+                   <Typography variant="caption" gutterBottom component="div" style={{ 'textAlign': 'center' }}>
+                     Predicted classes:
+                   </Typography>
                      {
                        item.predicted_classes.map(i =>
                            <Chip
