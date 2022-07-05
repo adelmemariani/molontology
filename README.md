@@ -1,4 +1,4 @@
-
+This web-based tool highlightes the important substructures of the molecules according to the predicted ontology classes. For more information, please have a look at this [paper](https://daoxai.inf.unibz.it/papers/DAO-XAI-2021-paper-1.pdf).
 
 ![molontology](https://github.com/adelmemariani/molontology/blob/main/screenshots/1.png)
 ![molontology](https://github.com/adelmemariani/molontology/blob/main/screenshots/2.png)
