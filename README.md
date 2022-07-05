@@ -1,8 +1,10 @@
-To see the outputs run:
+
 
 ![molontology](https://github.com/adelmemariani/molontology/blob/main/screenshots/1.png)
 ![molontology](https://github.com/adelmemariani/molontology/blob/main/screenshots/2.png)
 ![molontology](https://github.com/adelmemariani/molontology/blob/main/screenshots/3.png)
+
+To see the outputs run:
 
 ### `yarn start`
 
